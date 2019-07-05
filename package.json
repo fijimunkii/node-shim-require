@@ -1,0 +1,33 @@
+{
+  "name": "shim-require",
+  "version": "1.0.0",
+  "description": "Pre-process javascript files as they get `require`d",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/.bin/tap test --jobs=10 --coverage-report=html --no-browser"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fijimunkii/node-shim-require.git"
+  },
+  "keywords": [
+    "source",
+    "instrumentation",
+    "compile",
+    "optimize",
+    "shim",
+    "require",
+    "process",
+    "preprocess",
+    "pre-process"
+  ],
+  "author": "Harrison Powers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fijimunkii/node-shim-require/issues"
+  },
+  "homepage": "https://github.com/fijimunkii/node-shim-require#readme",
+  "devDependencies": {
+    "tap": "^14.4.1"
+  }
+}
