@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/fijimunkii/node-shim-require/issues"
   },
-  "homepage": "https://github.com/fijimunkii/node-shim-require#readme"
+  "homepage": "https://github.com/fijimunkii/node-shim-require#readme",
+  "devDependencies": {
+    "tap": "^14.4.1"
+  }
 }
