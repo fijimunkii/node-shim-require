@@ -13,32 +13,22 @@ function shimRequire(callback, extension) {
   if (!extension) {
     extension = defaultExtension;
   }
-  if (extension === 'js') {
-    Module._extensions['.js'] = function(module, filename) {
-      let content = fs.readFileSync(filename, 'utf8');
-      try {
-        content = stripBOM(content);
-        content = callback(content, filename, module);
+  Module._extensions[`.${extension}`] = function(module, filename) {
+    let content = fs.readFileSync(filename, 'utf8');
+    try {
+      content = stripBOM(content);
+      content = callback(content, filename, module);
+      if (extension === 'js') {
         module._compile(content, filename);
-      } catch (err) {
-        err.message = filename + ': ' + err.message;
-        throw err;
       }
-    };
-  }
-  else if (extension === 'json') {
-    Module._extensions['.json'] = function(module, filename) {
-      let content = fs.readFileSync(filename, 'utf8');
-      try {
-        content = stripBOM(content);
-        content = callback(content, filename, module);
+      else if (extension === 'json') {
         module.exports = JSON.parse(content);
-      } catch (err) {
-        err.message = filename + ': ' + err.message;
-        throw err;
       }
+    } catch (err) {
+      err.message = filename + ': ' + err.message;
+      throw err;
     }
-  }
+  };
 }
 
 function stripBOM(content) {
